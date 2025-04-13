@@ -1,0 +1,172 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Purchase Order Schema",
+  "description": "This JSON Schema defines the structure for Purchase Order data. Although some fields relate to other master data (such as item, supplier, and order), the structure is kept flat for simplicity in API integration.",
+  "properties": {
+    "poId": {
+      "type": "integer",
+      "description": "Unique identifier for the purchase order (Primary Key)."
+    },
+    "poNumber": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Purchase Order number (Primary Key)."
+    },
+    "poCategory": {
+      "type": "string",
+      "enum": ["PRODUCTION", "GENERAL"],
+      "description": "Category of the PO, whether it's for PRODUCTION or GENERAL use."
+    },
+    "supplierName": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Name of the supplier."
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date when the PO was created."
+    },
+    "dateEta": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Estimated arrival date."
+    },
+    "currency": {
+      "type": "string",
+      "enum": ["IDR", "USD"],
+      "description": "Currency used in the PO."
+    },
+    "rate": {
+      "type": "number",
+      "description": "Exchange rate if currency is USD."
+    },
+    "itemId": {
+      "type": "integer",
+      "description": "ID of the item (related to item master)."
+    },
+    "itemCode": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Code of the item."
+    },
+    "itemName": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "Name of the item."
+    },
+    "color": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Color of the item."
+    },
+    "quantityVendor": {
+      "type": "number",
+      "description": "Quantity according to vendor."
+    },
+    "priceVendor": {
+      "type": "number",
+      "description": "Price according to vendor."
+    },
+    "unitVendor": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Unit used by vendor."
+    },
+    "amountVendor": {
+      "type": "number",
+      "description": "Total vendor amount = quantityVendor × priceVendor."
+    },
+    "quantityInternal": {
+      "type": "number",
+      "description": "Internal company quantity record."
+    },
+    "priceInternal": {
+      "type": "number",
+      "description": "Internal company price record."
+    },
+    "unitInternal": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Unit used internally."
+    },
+    "orderNumber": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Related sales order number (flat structure)."
+    },
+    "bomId": {
+      "type": "integer",
+      "description": "Related Bill of Material ID (flat structure)."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the PO record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the PO record was last updated."
+    },
+    "deletedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the PO record was deleted (if applicable)."
+    }
+  },
+  "required": [
+    "poId", 
+	"poNumber", 
+	"poCategory", 
+	"supplierName", 
+	"date", 
+	"dateEta", 
+	"currency",
+    "rate", 
+	"itemId", 
+	"itemCode", 
+	"itemName", 
+	"color", 
+	"quantityVendor", 
+	"priceVendor",
+    "unitVendor", 
+	"amountVendor", 
+	"quantityInternal", 
+	"priceInternal", 
+	"unitInternal",
+    "orderNumber", 
+	"bomId", 
+	"createdAt", 
+	"updatedAt", 
+	"deletedAt"
+  ],
+  "additionalProperties": false,
+  "example": {
+    "poId": 501,
+    "poNumber": "PO-20250411-007",
+    "poCategory": "PRODUCTION",
+    "supplierName": "PT. Tekstil Abadi",
+    "date": "2025-04-10 09:00:00.000",
+    "dateEta": "2025-04-20 09:00:00.000",
+    "currency": "USD",
+    "rate": 15500.00,
+    "itemId": 1101,
+    "itemCode": "FABR-RED-220GSM",
+    "itemName": "Red Cotton Fabric 220GSM",
+    "color": "Red",
+    "quantityVendor": 5000,
+    "priceVendor": 2.75,
+    "unitVendor": "Yard",
+    "amountVendor": 13750.00,
+    "quantityInternal": 5000,
+    "priceInternal": 2.8,
+    "unitInternal": "Yard",
+    "orderNumber": "SO-20250401-003",
+    "bomId": 3001,
+    "createdAt": "2025-04-10 10:10:00.000",
+    "updatedAt": "2025-04-10 10:12:00.000",
+    "deletedAt": "2025-04-10 10:15:00.000"
+  }
+}

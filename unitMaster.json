@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Unit Schema",
+  "description": "This JSON Schema defines the structure of unit master data used for API integration. It contains the basic unit of measurement information used in item master data or transactional records.",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the unit (Primary Key)."
+    },
+    "unit": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Name or code of the unit (e.g., PCS, KG, MTR)."
+    },
+    "createdAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the unit record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the unit record was last updated."
+    },
+    "deletedAt": {
+      "type": ["string", "null"],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the unit record was deleted, if applicable."
+    }
+  },
+  "required": ["id", "unit", "createdAt", "updatedAt", "deletedAt"],
+  "additionalProperties": false,
+  "example": {
+    "id": 7,
+    "unit": "PCS",
+    "createdAt": "2025-04-05 14:20:30.555",
+    "updatedAt": "2025-04-10 09:45:12.111",
+    "deletedAt": null
+  }
+}

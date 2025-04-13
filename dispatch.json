@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Good Dispatch Schema",
+  "description": "This JSON Schema defines the structure of goods dispatch data from the warehouse to production. It includes information about the dispatched item, quantity, related order number, and references to previous processes such as receiving, purchase order, and bill of materials.",
+  "properties": {
+    "dispatchId": {
+      "type": "integer",
+      "description": "Unique identifier for the dispatch record (Primary Key)."
+    },
+    "receivedId": {
+      "type": "integer",
+      "description": "Reference ID to the received goods record."
+    },
+    "dispatchNumber": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Unique code representing the dispatch transaction."
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when the goods were dispatched (format: YYYY-MM-DD)."
+    },
+    "itemId": {
+      "type": "integer",
+      "description": "Unique identifier of the dispatched item."
+    },
+    "itemCode": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Code used to identify the item."
+    },
+    "itemName": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "Descriptive name of the item."
+    },
+    "color": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Color of the item."
+    },
+    "dispatchQty": {
+      "type": "number",
+      "description": "Total quantity of the item dispatched."
+    },
+    "price": {
+      "type": "number",
+      "description": "Unit price of the item."
+    },
+    "unit": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Unit of measurement used for the item."
+    },
+    "orderNumber": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Sales order number related to the dispatch."
+    }
+  },
+  "required": [
+    "dispatchId",
+    "receivedId",
+    "dispatchNumber",
+    "date",
+    "itemId",
+    "itemCode",
+    "itemName",
+    "color",
+    "dispatchQty",
+    "price",
+    "unit",
+    "orderNumber"
+  ],
+  
+  "additionalProperties": false,
+  "example": {
+    "dispatchId": 5001,
+    "receivedId": 3002,
+    "dispatchNumber": "DSP-20250411-001",
+    "date": "2025-04-11",
+    "itemId": 1001,
+    "itemCode": "FAB-BLUE-001",
+    "itemName": "Cotton Fabric Blue",
+    "color": "Blue",
+    "dispatchQty": 500,
+    "price": 12000.00,
+    "unit": "Meter",
+    "orderNumber": "SO-20250401-003"
+  }
+}

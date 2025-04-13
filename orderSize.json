@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Order Size Schema",
+  "description": "This JSON Schema defines the structure for order size entries, which represent the size breakdown of a specific sales order. Each entry must be linked to an existing Order via 'orderId' and 'orderNumber'.",
+  "properties": {
+    "orderSizeId": {
+      "type": "integer",
+      "description": "Unique identifier for the order size record (Primary Key)."
+    },
+    "orderId": {
+      "type": "integer",
+      "description": "ID of the related sales order (foreign key from Order schema)."
+    },
+    "orderNumber": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Sales order number (foreign key from Order schema)."
+    },
+    "size": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Size of the item in the sales order (e.g., S, M, L, XL)."
+    },
+    "quantity": {
+      "type": "integer",
+      "description": "Total quantity for this specific size."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the order size record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the order size record was last updated."
+    },
+    "deletedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the order size record was deleted (if applicable)."
+    }
+  },
+  "required": [
+    "orderSizeId",
+    "orderId",
+    "orderNumber",
+    "size",
+    "quantity",
+    "createdAt",
+    "updatedAt",
+    "deletedAt"
+  ],
+  "additionalProperties": false,
+  "example": {
+    "orderSizeId": 301,
+    "orderId": 10123,
+    "orderNumber": "SO-20250411-001",
+    "size": "L",
+    "quantity": 500,
+    "createdAt": "2025-04-11 10:30:00.000",
+    "updatedAt": "2025-04-11 10:45:00.000",
+    "deletedAt": "2025-04-11 11:00:00.000"
+  }
+}

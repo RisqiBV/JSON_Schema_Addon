@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Supplier Schema",
+  "description": "This JSON Schema defines the structure of supplier master data used for API integration. It contains key information about suppliers including their code, name, address, and timestamps for record tracking. Timestamp format follows SQL Server style: 'yyyy-MM-dd HH:mm:ss.SSS'.",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the supplier (Primary Key)."
+    },
+    "supplierCode": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Unique code assigned to the supplier."
+    },
+    "supplierName": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Full name of the supplier."
+    },
+    "supplierAddress": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Address of the supplier."
+    },
+    "createdAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the supplier record was created, formatted as 'yyyy-MM-dd HH:mm:ss.SSS'."
+    },
+    "updatedAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the supplier record was last updated, formatted as 'yyyy-MM-dd HH:mm:ss.SSS'."
+    },
+    "deletedAt": {
+      "type": ["string", "null"],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the supplier record was deleted, if applicable. Format: 'yyyy-MM-dd HH:mm:ss.SSS'."
+    }
+  },
+  "required": [
+    "id",
+    "supplierCode",
+    "supplierName",
+    "supplierAddress",
+    "createdAt",
+    "updatedAt",
+    "deletedAt"
+  ],
+  "additionalProperties": false
+}
+
+"example": {
+  "id": 12,
+  "supplierCode": "SUP-9921",
+  "supplierName": "PT. Addon Finance Indonesia",
+  "supplierAddress": "Jl. Darmo Residence No. 88, Yogyakarta",
+  "createdAt": "2025-03-28 08:05:44.800",
+  "updatedAt": "2025-04-10 13:27:01.421",
+  "deletedAt": null
+}

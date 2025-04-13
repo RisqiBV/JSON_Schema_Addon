@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Buyer Schema",
+  "description": "This JSON Schema defines the structure of buyer master data used for API integration. It includes essential information such as buyer code, name, address, and timestamps for creation, last modification, and deletion. Timestamp format follows SQL Server style: 'yyyy-MM-dd HH:mm:ss.SSS'.",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the buyer (Primary Key)."
+    },
+    "buyerCode": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Unique code assigned to the buyer."
+    },
+    "buyerName": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Full name of the buyer."
+    },
+    "buyerAddress": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Address of the buyer."
+    },
+    "createdAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the buyer record was created, formatted as 'yyyy-MM-dd HH:mm:ss.SSS'."
+    },
+    "editedAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the buyer record was last edited, formatted as 'yyyy-MM-dd HH:mm:ss.SSS'."
+    },
+    "deletedAt": {
+      "type": ["string", "null"],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the buyer record was deleted, if applicable. Format: 'yyyy-MM-dd HH:mm:ss.SSS'."
+    }
+  },
+  "required": [
+    "id",
+    "buyerCode",
+    "buyerName",
+    "buyerAddress",
+    "createdAt",
+    "editedAt",
+    "deletedAt"
+  ],
+  "additionalProperties": false
+}
+
+"example": {
+   "id": 45,
+  "buyerCode": "BUY-2033",
+  "buyerName": "Tokyo Fashion Co., Ltd.",
+  "buyerAddress": "4-1-1 Nihonbashi, Chuo-ku, Tokyo, Japan",
+  "createdAt": "2025-04-01 10:12:09.312",
+  "editedAt": "2025-04-10 15:40:50.400",
+  "deletedAt": null
+}

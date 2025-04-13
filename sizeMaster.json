@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Size Schema",
+  "description": "This JSON Schema defines the structure of size master data used for API integration. It contains size-related information commonly used for product specifications.",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the size (Primary Key)."
+    },
+    "size": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Size label or description (e.g., S, M, L, XL, 42)."
+    },
+    "createdAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the size record was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the size record was last updated."
+    },
+    "deletedAt": {
+      "type": ["string", "null"],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+      "description": "Timestamp when the size record was deleted, if applicable."
+    }
+  },
+  "required": ["id", "size", "createdAt", "updatedAt", "deletedAt"],
+  "additionalProperties": false,
+  "example": {
+    "id": 3,
+    "size": "L",
+    "createdAt": "2025-04-01 08:15:30.123",
+    "updatedAt": "2025-04-08 12:34:56.789",
+    "deletedAt": null
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "BOM (Bill of Materials) Schema",
+  "description": "This JSON Schema defines the structure of the Bill of Materials (BOM) detail data used for API integration. Each record is linked to a specific order via 'orderId' and 'orderNumber'. This schema contains item details, material color, quantity, and consumption data.",
+  "properties": {
+    "bomId": {
+      "type": "integer",
+      "description": "Unique identifier for the BOM record (Primary Key)."
+    },
+    "orderId": {
+      "type": "integer",
+      "description": "ID of the order related to this BOM (foreign key from Order schema)."
+    },
+    "orderNumber": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Sales order number (foreign key from Order schema)."
+    },
+    "bomCategory": {
+      "type": "string",
+      "enum": ["MAIN", "SUPPORTING"],
+      "description": "Category of the BOM item, whether MAIN or SUPPORTING."
+    },
+    "itemId": {
+      "type": "integer",
+      "description": "ID of the item used in this BOM."
+    },
+    "itemCode": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Code of the item used."
+    },
+    "itemName": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "Name of the item used."
+    },
+    "colorMaterial": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "The color of the material used."
+    },
+    "consumption": {
+      "type": "number",
+      "description": "Consumption per unit of item."
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Number of units required."
+    },
+    "unit": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Measurement unit used (e.g., PCS, MTR, DOZEN)."
+    },
+    "totalConsumption": {
+      "type": "number",
+      "description": "Total consumption calculated as consumption * quantity."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the BOM record was created (YYYY-MM-DD HH:MM:SS.sss)."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the BOM record was last updated (YYYY-MM-DD HH:MM:SS.sss)."
+    },
+    "deletedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the BOM record was deleted (if applicable)."
+    }
+  },
+  "required": [
+    "bomId",
+    "orderId",
+    "orderNumber",
+    "bomCategory",
+    "itemId",
+    "itemCode",
+    "itemName",
+    "colorMaterial",
+    "consumption",
+    "quantity",
+    "unit",
+    "totalConsumption",
+    "createdAt",
+    "updatedAt",
+    "deletedAt"
+  ],
+  "additionalProperties": false,
+  "example": {
+    "bomId": 20101,
+    "orderId": 10123,
+    "orderNumber": "SO-20250411-001",
+    "bomCategory": "MAIN",
+    "itemId": 305,
+    "itemCode": "FAB-001-NB",
+    "itemName": "Navy Blue Cotton Fabric",
+    "colorMaterial": "Navy Blue",
+    "consumption": 2.5,
+    "quantity": 1500,
+    "unit": "METER",
+    "totalConsumption": 3750.0,
+    "createdAt": "2025-04-11 10:15:00.000",
+    "updatedAt": "2025-04-11 10:45:30.000",
+    "deletedAt": "2025-04-11 11:00:00.000"
+  }
+}

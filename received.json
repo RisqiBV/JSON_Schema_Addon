@@ -1,0 +1,151 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Received Goods Schema",
+  "description": "This JSON Schema defines the structure of received goods data used in the inventory system. Each entry represents incoming goods from a supplier and is based on prior purchase orders (PO) which in turn relate to BOM and sales orders.",
+  "properties": {
+    "receivedId": {
+      "type": "integer",
+      "description": "Primary Key. Unique identifier for the goods receipt entry."
+    },
+    "receivedNumber": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Unique document number for the received goods entry."
+    },
+    "receivedCategory": {
+      "type": "string",
+      "enum": ["PRODUCTION", "GENERAL"],
+      "description": "Category of receipt, indicating if it's for production use or general purpose."
+    },
+    "supplierName": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Name of the supplier delivering the goods."
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when the goods were received (format: YYYY-MM-DD)."
+    },
+    "currency": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Currency used for the transaction (e.g., IDR, USD)."
+    },
+    "rate": {
+      "type": "number",
+      "description": "Currency exchange rate applied."
+    },
+    "itemId": {
+      "type": "integer",
+      "description": "ID of the item being received. Typically references the master item data."
+    },
+    "itemCode": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Code of the item."
+    },
+    "itemName": {
+      "type": "string",
+      "maxLength": 255,
+      "description": "Name of the item."
+    },
+    "color": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Color variant of the item."
+    },
+    "receivedQty": {
+      "type": "number",
+      "description": "Quantity of goods received."
+    },
+    "priceVendor": {
+      "type": "number",
+      "description": "Price per unit from vendor."
+    },
+    "unitVendor": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Unit used by vendor (e.g., ROLL, PCS)."
+    },
+    "amountVendor": {
+      "type": "number",
+      "description": "Total amount from vendor (receivedQty * priceVendor)."
+    },
+    "quantityInternal": {
+      "type": "number",
+      "description": "Quantity converted to internal unit measurement."
+    },
+    "priceInternal": {
+      "type": "number",
+      "description": "Price per unit in internal unit of measurement."
+    },
+    "unitInternal": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Internal unit used in the system."
+    },
+    "orderNumber": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Sales order number this receipt relates to."
+    },
+    "poNumber": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "Purchase Order number that initiated this goods receipt."
+    },
+    "poId": {
+      "type": "integer",
+      "description": "ID of the related Purchase Order. This receipt is linked to a specific PO which may be based on a BOM."
+    }
+  },
+  "required": [
+    "receivedId",
+    "receivedNumber",
+    "receivedCategory",
+    "supplierName",
+    "date",
+    "currency",
+    "rate",
+    "itemId",
+    "itemCode",
+    "itemName",
+    "color",
+    "receivedQty",
+    "priceVendor",
+    "unitVendor",
+    "amountVendor",
+    "quantityInternal",
+    "priceInternal",
+    "unitInternal",
+    "orderNumber",
+    "poNumber",
+    "poId"
+  ],
+  "additionalProperties": false,
+  "example": {
+    "receivedId": 501,
+    "receivedNumber": "RCV-20250411-001",
+    "receivedCategory": "PRODUCTION",
+    "supplierName": "PT Tekstil Nusantara",
+    "date": "2025-04-11",
+    "currency": "USD",
+    "rate": 15500.00,
+    "itemId": 301,
+    "itemCode": "FAB123",
+    "itemName": "Cotton Twill 20s",
+    "color": "Black",
+    "receivedQty": 500.0,
+    "priceVendor": 2.50,
+    "unitVendor": "YARD",
+    "amountVendor": 1250.00,
+    "quantityInternal": 457.0,
+    "priceInternal": 3.00,
+    "unitInternal": "METER",
+    "orderNumber": "SO-202404-003",
+    "poNumber": "PO-20240315-009",
+    "poId": 1009
+  }
+}

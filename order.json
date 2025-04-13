@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Order Schema",
+  "description": "This JSON Schema defines the structure of sales order data used for API integration. It contains information such as order number, buyer, style, quantity, and other order-specific attributes.",
+  "properties": {
+    "orderId": {
+      "type": "integer",
+      "description": "Unique identifier for the order (Primary Key)."
+    },
+    "orderNumber": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "The unique sales order number."
+    },
+    "buyer": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "The name of the buyer placing the order."
+    },
+    "style": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "The style associated with the sales order."
+    },
+    "quantity": {
+      "type": "integer",
+      "description": "The quantity of items in the order."
+    },
+    "poBuyer": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "The purchase order number from the buyer."
+    },
+    "color": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "The color of the items in the order."
+    },
+    "unit": {
+      "type": "string",
+      "maxLength": 50,
+      "description": "The unit of measurement for the order, e.g., PCS, DOZEN, METER."
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "The date when the order was placed (YYYY-MM-DD)."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the order was created, formatted as YYYY-MM-DD HH:MM:SS.sss"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the order was last updated, formatted as YYYY-MM-DD HH:MM:SS.sss"
+    },
+    "deletedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the order was deleted (if applicable), formatted as YYYY-MM-DD HH:MM:SS.sss"
+    }
+  },
+  "required": [
+    "orderId",
+    "orderNumber",
+    "buyer",
+    "style",
+    "quantity",
+    "poBuyer",
+    "color",
+    "unit",
+    "date",
+    "createdAt",
+    "updatedAt",
+    "deletedAt"
+  ],
+  "additionalProperties": false
+}
+"example": {
+  "orderId": 10123,
+  "orderNumber": "SO-20250411-001",
+  "buyer": "PT. Global Texindo",
+  "style": "Casual Shirt A23",
+  "quantity": 1500,
+  "poBuyer": "PO-987654321",
+  "color": "Navy Blue",
+  "unit": "PCS",
+  "date": "2025-04-10",
+  "createdAt": "2025-04-10 11:46:07.333",
+  "updatedAt": "2025-04-11 09:30:25.100",
+  "deletedAt": "2025-04-11 09:31:00.000"
+}

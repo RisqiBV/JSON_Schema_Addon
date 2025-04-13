@@ -89,7 +89,7 @@
     "orderNumber": {
       "type": "string",
       "maxLength": 50,
-      "description": "Sales order number this receipt relates to."
+      "description": "Sales order number this receipt relates to. for General Purchase Order, this field assign Null for this "
     },
     "poNumber": {
       "type": "string",

@@ -62,17 +62,17 @@
 	"createdAt": {
       "type": "string",
       "format": "date-time",
-      "description": "Timestamp when the BOM record was created (YYYY-MM-DD HH:MM:SS.sss)."
+      "description": "Timestamp when the dispatch record was created (YYYY-MM-DD HH:MM:SS.sss)."
     },
     "updatedAt": {
       "type": "string",
       "format": "date-time",
-      "description": "Timestamp when the BOM record was last updated (YYYY-MM-DD HH:MM:SS.sss)."
+      "description": "Timestamp when the dispatch record was last updated (YYYY-MM-DD HH:MM:SS.sss)."
     },
     "deletedAt": {
       "type": "string",
       "format": "date-time",
-      "description": "Timestamp when the BOM record was deleted (if applicable)."
+      "description": "Timestamp when the dispatch record was deleted (if applicable)."
     }
   },
   "required": [

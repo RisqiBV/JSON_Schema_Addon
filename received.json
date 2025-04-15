@@ -99,8 +99,24 @@
     "poId": {
       "type": "integer",
       "description": "ID of the related Purchase Order. This receipt is linked to a specific PO which may be based on a BOM."
+    },	
+	"createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the BOM record was created (YYYY-MM-DD HH:MM:SS.sss)."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the BOM record was last updated (YYYY-MM-DD HH:MM:SS.sss)."
+    },
+    "deletedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the BOM record was deleted (if applicable)."
     }
   },
+  
   "required": [
     "receivedId",
     "receivedNumber",
@@ -122,7 +138,10 @@
     "unitInternal",
     "orderNumber",
     "poNumber",
-    "poId"
+    "poId",
+	"createdAt",
+    "updatedAt",
+    "deletedAt"
   ],
   "additionalProperties": false,
   "example": {
@@ -146,6 +165,9 @@
     "unitInternal": "METER",
     "orderNumber": "SO-202404-003",
     "poNumber": "PO-20240315-009",
-    "poId": 1009
+    "poId": 1009,
+	"createdAt": "2025-04-11 10:15:00.000",
+    "updatedAt": "2025-04-11 10:45:30.000",
+    "deletedAt": "2025-04-11 11:00:00.000"
   }
 }

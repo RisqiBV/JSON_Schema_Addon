@@ -58,6 +58,21 @@
       "type": "string",
       "maxLength": 50,
       "description": "Sales order number related to the dispatch."
+    },
+	"createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the BOM record was created (YYYY-MM-DD HH:MM:SS.sss)."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the BOM record was last updated (YYYY-MM-DD HH:MM:SS.sss)."
+    },
+    "deletedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the BOM record was deleted (if applicable)."
     }
   },
   "required": [
@@ -72,7 +87,10 @@
     "dispatchQty",
     "price",
     "unit",
-    "orderNumber"
+    "orderNumber",
+	"createdAt",
+    "updatedAt",
+    "deletedAt"
   ],
   
   "additionalProperties": false,
@@ -88,6 +106,9 @@
     "dispatchQty": 500,
     "price": 12000.00,
     "unit": "Meter",
-    "orderNumber": "SO-20250401-003"
+    "orderNumber": "SO-20250401-003",
+	"createdAt": "2025-04-11 10:15:00.000",
+    "updatedAt": "2025-04-11 10:45:30.000",
+    "deletedAt": "2025-04-11 11:00:00.000"
   }
 }
